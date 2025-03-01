@@ -1,7 +1,8 @@
 body {
     margin: 0px 0px;
     font-family: Poppins, sans-serif;
-    background-color: aliceblue;
+    background-color: rgba(43, 43, 43, 0.781);
+    color: aliceblue;
 }
 #navlist {
     list-style: none;
@@ -15,11 +16,15 @@ body {
     padding: 10px 60px;
     background-color: rgb(0, 0, 0); 
     color: aliceblue;   
-    box-shadow: 0 0 50px red;
+    box-shadow: 0 0 50px rgb(181, 0, 226);
     position: fixed;
     right: 0;
     left: 0;
     top: 0;
+}
+
+.name {
+    color:rgb(255, 255, 255);
 }
 
 #hamburger {
@@ -33,7 +38,7 @@ body {
 }
 .imglogo {
     border-radius: 50px;
-    box-shadow: 0 0 30px red;
+    box-shadow: 0 0 30px rgb(255, 0, 0);
 }
 #video {
     display: flex;
@@ -68,8 +73,8 @@ a {
 
 a:hover {
     transform: scale(1.05);
-    color: red;
-    box-shadow: 0 0 50px white;
+    color: rgb(195, 0, 255);
+
 }
 
 #videoyt2 {
@@ -96,3 +101,4 @@ a:hover {
 #videoyt2 {
     box-shadow: 0 0 50px purple;
 }
+
