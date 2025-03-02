@@ -5,6 +5,7 @@ body {
     background: linear-gradient(to right, black, rgb(32, 0, 0));
     
 }
+/* Barra Navigazione */
 #navbar {
     display: flex;
     align-items: center;
@@ -36,9 +37,7 @@ body {
     align-items: center;
     gap: 12px;
 }
-.hamburger {
-    margin-left: 700px
-}
+ /* Fine Barra */
 #video {
  text-align: center;
  margin-top: 200px;
@@ -58,4 +57,27 @@ body {
    }
 #video2 iframe {
     box-shadow: 0 0 50px purple;
+}
+
+.hamburger {
+    width: 20px;
+    margin-left: auto;
+}
+#footer {
+    background: linear-gradient(to right, black, rgb(22, 22, 22));
+    color: #555555;
+    text-align: center;
+    padding: 10px 5px;
+    font-size: 0.9rem;
+}
+
+#footer a {
+    color: #840200;
+    text-decoration: none;
+    margin: 0 5px;
+    transition: color 0.3s;
+}
+
+#footer a:hover {
+    color: #ffffff;
 }

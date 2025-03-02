@@ -1,48 +1,41 @@
 body {
     font-family: Lato, sans-serif;
-    margin: 0px 0px;
     color: white;
-    background-color: rgb(83, 83, 83);
+    margin: 0 0;
+    background: linear-gradient(to right, black, rgb(32, 0, 0));
+    padding: 0;
+    
 }
-#logo {
-    display: flex;
-    align-items: center;
-    justify-content: start;
-    gap: 24px;
-
-}
-#navlist {
-    display: flex;
-    gap: 24px;
-    list-style: none;
-}
-
 #navbar {
     display: flex;
     align-items: center;
+    text-align: center;
     background-color: black;
-    box-shadow: 0 0 50px purple;
     padding: 10px 60px;
-}
-.imglogo {
-    border-radius: 50px;
-    box-shadow: 0 0 30px rgb(219, 0, 0);
-}
-#hamburger {
-    margin-left: auto;
-    margin-right: 24px;
-}
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
 
-a {
+}
+#navlist {
+    text-decoration: none;
+    list-style: none;
+    display: flex;
+    gap: 24px;
+
+}
+#navlist a {
     text-decoration: none;
     color: white;
-    transition: transform 0.3s ease-in-out;
 }
-
-a:hover {
-    transform: scale(1.05);
-    color: rgb(195, 0, 255);
-
+#navbar img {
+    border-radius: 50px;
+}
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
 }
 
 .contact-container {
@@ -50,6 +43,7 @@ a:hover {
     display: flex;
     align-items: center;
     justify-content: space-evenly;
+    margin-top: 50px;
     
 }
 
@@ -108,7 +102,6 @@ a:hover {
     cursor: pointer;
 }
 
-
 main {
     margin-top: 100px;
 }
@@ -117,6 +110,37 @@ main {
     box-shadow: 0 0 500px red;
 
 }
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+#footer {
+    background: black;
+    color: white;
+    text-align: center;
+    padding: 15px 10px;
+    font-size: 0.9rem;
+    margin: 0;
+
+}
+main {
+    flex-grow: 1;
+    padding-bottom: 0;
+    margin-bottom: 0;
+}
+
+#footer a {
+    color: firebrick;
+    text-decoration: none;
+    margin: 0 8px;
+    transition: color 0.3s;
+}
+
+#footer a:hover {
+    color: white;
+}
+
 @media  (max-width:600px) {
     .contact-inputs{
         width: 80vw;
@@ -125,4 +149,23 @@ main {
     .contact-right{
         display: none;
     }
+    html, body {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        overflow-x: hidden; /* Evita scrolling orizzontale */
+    }
+
+    /* Media Query per schermi tra 1024px e 1440px */
+@media (max-width: 1440px) and (min-width: 1024px) {
+    #footer {
+        margin: 0;
+        padding: 15px;
+        width: 100%;
+        position: relative;
+        bottom: 0;
+        display: none;
+    }
+}
+
 }
