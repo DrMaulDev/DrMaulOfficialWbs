@@ -1,32 +1,111 @@
-@media (max-width: 768px) {
+@media (max-width: 900px) {
+
+    /* --- Stili Generali --- */
+    html, body {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        overflow-x: hidden; /* Evita scrolling orizzontale */
+    }
+
+    /* --- Navbar --- */
     #navbar {
         padding: 10px 30px; 
     }
 
     #navlist {
-        flex-direction: column; 
+        flex-direction: column; /* Disposizione verticale dei link */
         gap: 12px;
-        display: none;
-    }
-
-    .hamburger {
-        position: absolute;
-        right: 100px; 
-        top: 50%; 
-        transform: translateY(-50%); 
-
-    }
-
-    #video iframe, #video2 iframe {
-        width: 80%; 
-        height: 200px; 
+        display: none; /* Nasconde i link di navigazione su dispositivi mobili */
     }
 
     .logo {
         gap: 8px;
     }
 
+    /* --- Menu Hamburger --- */
+    .hamburger {
+        position: absolute;
+        right: 100px; 
+        top: 50%; 
+        transform: translateY(-50%); 
+    }
+
+    .toggle-button {
+        font-size: 25px;
+    }
+
+    /* --- Video Section --- */
+    #video iframe, #video2 iframe {
+        width: 80%; 
+        height: 200px; 
+    }
+
     .text, .text2 {
         padding: 0 15px; 
     }
+
+    /* --- Contact Form --- */
+    .contact-inputs {
+        width: 80vw;
+    }
+
+    .contact-right {
+        display: none; /* Nasconde il contenuto a destra su mobile */
+    }
+
+    /* --- Sidebar (Navigazione laterale) --- */
+    .all {
+        display: contents; /* Viene usato per mantenere il layout consistente */
+    }
+
+    .sidebar {
+        width: 250px;
+        background: linear-gradient(to right, black, rgb(4, 0, 25));
+        color: white;
+        position: fixed;
+        top: 0;
+        right: -400px; /* Sidebar inizialmente nascosta */
+        height: 100vh;
+        transition: right 0.3s ease; /* Transizione fluida */
+        padding: 20px;
+        z-index: 999;
+        align-items: center;
+        text-align: center;
+    }
+
+    .sidebar h2 {
+        display: none; /* Nasconde il titolo della sidebar */
+        margin-bottom: 20px;
+        color: rgb(255, 255, 255);
+    }
+
+    .sidebar ul {
+        list-style: none;
+        align-items: center;
+        text-align: center;
+        padding-left: 0px;
+        font-size: 20px;
+    }
+
+    .sidebar ul li {
+        margin: 10px 0;
+        margin-bottom: 50px;
+    }
+
+    .sidebar ul li a {
+        color: white;
+        text-decoration: none;
+        transition: color 0.3s;
+    }
+
+    .sidebar ul li a:hover {
+        color: #c40000; /* Cambia il colore al passaggio del mouse */
+    }
+
+    /* Quando il checkbox è selezionato, la sidebar si sposterà a destra */
+    .sidebar-toggle:checked + .toggle-button + .sidebar {
+        right: 0;
+    }
+
 }

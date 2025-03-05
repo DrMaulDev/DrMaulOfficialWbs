@@ -1,11 +1,15 @@
+/* --- Stili Generali --- */
 body {
     font-family: Lato, sans-serif;
     color: white;
-    margin: 0 0;
+    margin: 0;
     background: linear-gradient(to right, black, rgb(32, 0, 0));
-    
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
-/* Barra Navigazione */
+
+/* --- Barra di Navigazione --- */
 #navbar {
     display: flex;
     align-items: center;
@@ -16,59 +20,78 @@ body {
     top: 0;
     left: 0;
     width: 100%;
-
 }
+
 #navlist {
     text-decoration: none;
     list-style: none;
     display: flex;
     gap: 24px;
-
 }
+
 #navlist a {
     text-decoration: none;
     color: white;
+    transition: color 0.3s;
+    user-select: none;
 }
+
+#navlist a:hover {
+    color: red;
+}
+
 #navbar img {
     border-radius: 50px;
 }
+
 .logo {
     display: flex;
     align-items: center;
     gap: 12px;
+    pointer-events: none;
+    user-select: none;
 }
- /* Fine Barra */
+
+/* --- Sezione Video (Main 2) --- */
 #video {
- text-align: center;
- margin-top: 200px;
+    text-align: center;
+    margin-top: 160px;
 }
+
 .text {
     text-align: center;
 }
-#video iframe{
-    box-shadow: 0 0 50px rgb(255, 0, 0);
+
+#video iframe {
+    box-shadow: 0 0 50px rgb(255, 0, 0); /* Ombra rossa per l'iframe */
 }
+
 #video2 {
     text-align: center;
     margin-top: 80px;
-   }
-   .text2 {
-       text-align: center;
-   }
-#video2 iframe {
-    box-shadow: 0 0 50px purple;
 }
 
+.text2 {
+    text-align: center;
+}
+
+#video2 iframe {
+    box-shadow: 0 0 50px purple; /* Ombra viola per l'iframe */
+}
+
+/* --- Hamburger Menu --- */
 .hamburger {
     width: 20px;
     margin-left: auto;
 }
-#footer {
-    background: linear-gradient(to right, black, rgb(22, 22, 22));
-    color: #555555;
+
+/* --- Footer --- */
+footer {
+    background-color: #000000;
+    color: white;
     text-align: center;
-    padding: 10px 5px;
-    font-size: 0.9rem;
+    padding: 10px;
+    margin-top: auto;
 }
 
 #footer a {
@@ -80,4 +103,98 @@ body {
 
 #footer a:hover {
     color: #ffffff;
+}
+
+/* --- Toggle Sidebar --- */
+.sidebar-toggle {
+    display: none; /* Nasconde il checkbox */
+}
+
+.toggle-button {
+    font-size: 30px;
+    background-color: black;
+    color: white;
+    padding: 10px;
+    cursor: pointer;
+    position: fixed;
+    top: 15px;
+    right: 15px;
+    border-radius: 5px;
+    z-index: 1000;
+}
+
+/* --- Sidebar --- */
+.all {
+    display: none;
+}
+
+.sidebar {
+    width: 250px;
+    background: linear-gradient(to right, black, rgb(4, 0, 25));
+    color: white;
+    position: fixed;
+    top: 0;
+    right: -400px; /* Sidebar inizialmente nascosta */
+    height: 100vh;
+    transition: right 0.3s ease; /* Transizione fluida per il movimento della sidebar */
+    padding: 20px;
+    z-index: 999;
+    align-items: center;
+    text-align: center;
+}
+
+.sidebar h2 {
+    margin-bottom: 20px;
+    color: rgb(255, 255, 255); /* Colore del titolo della sidebar */
+}
+
+.sidebar ul {
+    list-style: none;
+    align-items: center;
+    text-align: center;
+    padding-left: 0px;
+    font-size: 20px;
+}
+
+.sidebar ul li {
+    margin: 10px 0;
+    margin-bottom: 50px;
+}
+
+.sidebar ul li a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.sidebar ul li a:hover {
+    color: #c40000; /* Colore al passaggio del mouse sui link */
+}
+
+/* --- Media Queries --- */
+@media (max-width: 900px) {
+    /* Modifica della dimensione del bottone per il menu mobile */
+    .toggle-button {
+        font-size: 25px;
+    }
+
+    /* Ridimensionamento della sidebar */
+    .sidebar {
+        width: 200px;
+    }
+
+    /* Nascondi il titolo della sidebar su schermi piccoli */
+    .sidebar h2 {
+        display: none;
+    }
+
+    /* Visualizzazione della sidebar in modalità mobile */
+    .all {
+        display: contents;
+    }
+
+    /* Quando il checkbox è selezionato, la sidebar si sposterà a destra */
+    .sidebar-toggle:checked + .toggle-button + .sidebar {
+        right: 0;
+    }
 }

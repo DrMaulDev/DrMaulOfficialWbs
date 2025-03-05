@@ -1,11 +1,15 @@
+/* --- Stili Generali --- */
 body {
     font-family: Lato, sans-serif;
     color: white;
-    margin: 0 0;
+    margin: 0;
     background: linear-gradient(to right, black, rgb(32, 0, 0));
-    padding: 0;
-    
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
+
+/* --- Barra di Navigazione --- */
 #navbar {
     display: flex;
     align-items: center;
@@ -16,50 +20,61 @@ body {
     top: 0;
     left: 0;
     width: 100%;
-
 }
+
 #navlist {
     text-decoration: none;
     list-style: none;
     display: flex;
     gap: 24px;
-
 }
+
 #navlist a {
     text-decoration: none;
     color: white;
+    transition: color 0.3s;
+    user-select: none;
 }
+
+#navlist a:hover {
+    color: red;
+}
+
 #navbar img {
     border-radius: 50px;
 }
+
 .logo {
     display: flex;
     align-items: center;
     gap: 12px;
+    pointer-events: none;
+    user-select: none;
 }
 
+/* --- Contenitore Contatti --- */
 .contact-container {
-
     display: flex;
     align-items: center;
     justify-content: space-evenly;
     margin-top: 50px;
-    
 }
 
 .contact-left {
     display: flex;
     flex-direction: column;
     align-items: start;
-    gap: 20px ;
+    gap: 20px;
 }
+
 .contact-left-title h2 {
     font-weight: 600;
     color: rgb(255, 255, 255);
     font-size: 40px;
     margin-bottom: 5px;
 }
-.contact-left-title hr{
+
+.contact-left-title hr {
     border: none;
     width: 120px;
     height: 5px;
@@ -68,7 +83,7 @@ body {
     margin-bottom: 20px;
 }
 
-.contact-inputs{
+.contact-inputs {
     width: 400px;
     height: 50px;
     border: none;
@@ -78,18 +93,22 @@ body {
     color: #666;
     border-radius: 50px;
 }
+
 .contact-left textarea {
     height: 140px;
     padding: 15px;
     border-radius: 20px;
 }
-.contact-inputs:focus{
+
+.contact-inputs:focus {
     border: 2px solid firebrick;
 }
-.contact-inputs::placeholder{
+
+.contact-inputs::placeholder {
     color: rgb(0, 0, 0);
 }
-.contact-left button{
+
+.contact-left button {
     display: flex;
     align-items: center;
     padding: 15px 30px;
@@ -102,19 +121,20 @@ body {
     cursor: pointer;
 }
 
+/* --- Main Content --- */
 main {
     margin-top: 100px;
+    flex-grow: 1;
+    padding-bottom: 0;
+    margin-bottom: 0;
 }
+
 .contact-right img {
     border-radius: 50%;
     box-shadow: 0 0 500px red;
+}
 
-}
-body {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-}
+/* --- Footer --- */
 #footer {
     background: black;
     color: white;
@@ -122,12 +142,6 @@ body {
     padding: 15px 10px;
     font-size: 0.9rem;
     margin: 0;
-
-}
-main {
-    flex-grow: 1;
-    padding-bottom: 0;
-    margin-bottom: 0;
 }
 
 #footer a {
@@ -141,31 +155,74 @@ main {
     color: white;
 }
 
-@media  (max-width:600px) {
-    .contact-inputs{
-        width: 80vw;
-
-    }
-    .contact-right{
-        display: none;
-    }
-    html, body {
-        margin: 0;
-        padding: 0;
-        height: 100%;
-        overflow-x: hidden; /* Evita scrolling orizzontale */
-    }
-
-    /* Media Query per schermi tra 1024px e 1440px */
-@media (max-width: 1440px) and (min-width: 1024px) {
-    #footer {
-        margin: 0;
-        padding: 15px;
-        width: 100%;
-        position: relative;
-        bottom: 0;
-        display: none;
-    }
+/* --- Sidebar Toggle --- */
+.sidebar-toggle {
+    display: none; /* Nasconde il checkbox */
 }
 
+.toggle-button {
+    font-size: 30px;
+    background-color: black;
+    color: white;
+    padding: 10px;
+    cursor: pointer;
+    position: fixed;
+    top: 15px;
+    right: 15px;
+    border-radius: 5px;
+    z-index: 1000;
+}
+
+/* --- Sidebar --- */
+.all {
+    display: none;
+}
+
+.sidebar {
+    width: 250px;
+    background: linear-gradient(to right, black, rgb(4, 0, 25));
+    color: white;
+    position: fixed;
+    top: 0;
+    right: -400px; /* Sidebar inizialmente nascosta */
+    height: 100vh;
+    transition: right 0.3s ease; /* Transizione fluida */
+    padding: 20px;
+    z-index: 999;
+    align-items: center;
+    text-align: center;
+}
+
+.sidebar h2 {
+    display: none; /* Nasconde il titolo della sidebar */
+    margin-bottom: 20px;
+    color: rgb(255, 255, 255);
+}
+
+.sidebar ul {
+    list-style: none;
+    align-items: center;
+    text-align: center;
+    padding-left: 0px;
+    font-size: 20px;
+}
+
+.sidebar ul li {
+    margin: 10px 0;
+    margin-bottom: 50px;
+}
+
+.sidebar ul li a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.sidebar ul li a:hover {
+    color: #c40000; /* Colore hover per i link */
+}
+
+/* Quando il checkbox è selezionato, la sidebar si sposterà a destra */
+.sidebar-toggle:checked + .toggle-button + .sidebar {
+    right: 0;
 }
